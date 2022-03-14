@@ -48,19 +48,37 @@
             </div>
         </nav>
 
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    {% if category == 'error' %}
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    {% else %}
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
         <!-- content -->
         {% block content %}{% endblock %}
         
         <!-- footer -->
-        <footer class="bg-dark bg-gradient fixed-bottom">
+        <footer class="page-footer bg-dark bg-gradient fixed-bottom mt-auto" id="footer">
             <div class="container text-light text-center">
                 <nav class="font-poppins p-3">
                     Authors: 
                     <a class="footer" href="https://www.facebook.com/jshcrzt">Cruzat, Joshua</a> | 
                     <a class="footer" href="https://www.facebook.com/jers.zamora.9">Destacamento, Jerson</a> | 
                     <a class="footer" href="https://www.facebook.com/leeurengi">Legaspi, Rocella Mae</a>
+                    <p class="pt-3">&copy2021 PUP-CCIS<br />All Rights Reserved.</p>
                 </nav>
-                <p class="pt-3">&copy2021 PUP-CCIS<br />All Rights Reserved.</p>
             </div>
         </footer>
 

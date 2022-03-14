@@ -4,6 +4,7 @@ body{
     background-size: cover;
 	background-attachment: fixed;
     background-position: center;
+    margin-bottom: 180px;
 }
 
 .font-poppins {
@@ -23,5 +24,10 @@ body{
 }
 
 .login-form, .signup-form {
-    border-radius: 5px;
+    border-radius: 10px;
+}
+
+.signup-form {
+    width: 75%;
+    margin: auto;
 }
