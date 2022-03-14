@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+body{
+    background-size: cover;
+	background-attachment: fixed;
+    background-position: center;
+}
+
+.font-poppins {
+    font-family: 'Poppins', sans-serif;
+}
+
+.footer {
+    color: lightslategray;
+}
+
+.login, .signup {
+    background-image: url('../images/pup_gate.jpg');
+}
+
+.home, .grades, .enrollment, .schedule {
+    background-image: url('../images/pup_campus.jpg');
+}
+
+.login-form, .signup-form {
+    border-radius: 5px;
+}

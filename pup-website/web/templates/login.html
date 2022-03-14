@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Log-in{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row font-poppins text-dark fw-bold mt-5 m-0">
+            <div class="col-8"></div>
+            <div class="col-4">
+                <form method="POST" class="bg-light border border-2 login-form">
+                    <div class="mb-3 mt-3 ms-3 me-3">
+                        <label for="student-num" class="form-label">Student Number:</label>
+                        <input type="text" class="form-control form-control-sm" id="student-num" name="student-num" maxlength="15" size="15" placeholder="Enter Student Number" required>
+                    </div>
+                    <div class="mb-3 mt-3 ms-3 me-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control form-control-sm" id="password" name="password" placeholder="Enter Password" maxlength="50" size="50" required>
+                    </div>
+                    <div class="d-grid mb-3 mt-3 ms-3 me-3">
+                        <input type="submit" class="btn btn-primary fw-bold" name="btn-login" value="Log In">
+                    </div>
+                    <div class="text-center">
+                        <a href="#" class="text-decoration-none fw-normal">Forgot Password?</a><hr />
+                    </div>
+                    <div class="text-center mb-3 mt-4 ms-3 me-3">
+                        <a href="/sign-up" class="btn btn-success btn-lg fw-bold">Create an Account</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
