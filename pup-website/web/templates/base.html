@@ -21,28 +21,43 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbar">
                     <ul class="navbar-nav font-poppins ms-auto mb-0 mb-lg-0 fs-6 fw-bold">
-                        <!-- INSERT IF STATEMENT HERE FOR USER -->
-                        <li class="nav-item">
-                            <a class="nav-link" href="/grades" id="grades">Grades</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/enrollment" id="enrollment">Enrollment</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/schedule" id="schedule">Schedule</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/home" id="home">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/log-out" id="logout">Logout</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/log-in" id="login">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/sign-up" id="signuon">Signup</a>
-                        </li>
+
+                        {% if user.is_authenticated %}
+                            {% set navigation_bar = [
+                                ("views/views.grades", "grades", "Grades"),
+                                ("views/views.schedule", "schedule", "Schedule"),
+                                ("views/views.home", "home", "Home"),
+                                ("views/auth.log_out", "logout", "Logout")
+                            ] -%}
+
+                            {% if user_type == 'student' %}
+                                {% set _temp = navigation_bar.insert(1, ("views/views.enrollment", "enrollment", "Enrollment")) %}
+                            {% elif user_type == 'admin' %}
+                                {% set _temp = navigation_bar.insert(1, ("views/views.students_list", "students-list", "Students List")) %}
+                            {% endif %}
+
+
+                            {% set active_page = active_page | default('home') -%}
+
+                            {% for href, id, caption in navigation_bar %}
+                                <li class="nav-item">
+                                    <a class="nav-link {% if id == active_page %}active{% endif %}" href="{{ url_for(href) }}">{{ caption|e }}</a>
+                                </li>
+                            {% endfor %}
+                        {% else %}
+                            {% set navigation_bar = [
+                                ("views/auth.log_in", "login", "Login"),
+                                ("views/auth.sign_up", "signup", "Signup")
+                            ] -%}
+
+                            {% set active_page = active_page | default('login') -%}
+
+                            {% for href, id, caption in navigation_bar %}
+                                <li class="nav-item">
+                                    <a class="nav-link {% if id == active_page %}active{% endif %}" href="{{ url_for(href) }}">{{ caption|e }}</a>
+                                </li>
+                            {% endfor %}
+                        {% endif %}
                     </ul>
                 </div>
             </div>
@@ -56,11 +71,11 @@
                             {{ message }}
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
-                    {% else %}
+                    {% elif category == 'success' %}
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
                             {{ message }}
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
+                        </div>                    
                     {% endif %}
                 {% endfor %}
             {% endif %}
@@ -70,9 +85,9 @@
         {% block content %}{% endblock %}
         
         <!-- footer -->
-        <footer class="page-footer bg-dark bg-gradient fixed-bottom mt-auto" id="footer">
+        <footer class="page-footer bg-dark bg-gradient mt-auto" id="footer">
             <div class="container text-light text-center">
-                <nav class="font-poppins p-3">
+                <nav class="font-poppins pt-3">
                     Authors: 
                     <a class="footer" href="https://www.facebook.com/jshcrzt">Cruzat, Joshua</a> | 
                     <a class="footer" href="https://www.facebook.com/jers.zamora.9">Destacamento, Jerson</a> | 

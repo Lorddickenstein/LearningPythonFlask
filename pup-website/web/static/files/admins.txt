@@ -1,0 +1,5 @@
+2012-10200-MN-0, Carlo, Garcia, Inovero, Makati City, 26, Male, carloinovero@gmail.com, 2000-08-04, pass001
+2012-10201-MN-0, Rachel, Alonzo, Nayre, Pasig City, 24, Female, rachelnayre@gmail.com, 2000-09-02, pass002
+2012-10202-MN-0, Sherilyn, Barretto, Usero, Laguna City, 29, Female, sheusero@gmail.com, 2000-03-06, pass003
+2012-10203-MN-0, Leo, Toledo, Violeta, Makati City, 22, Male, leovioleta@gmail.com, 2000-08-01, pass004
+2012-10204-MN-0, Michael, Buenavides, Dela Fuente, Makati City, 24, Male, mikedelafuente@gmail.com, 2000-01-04, pass005

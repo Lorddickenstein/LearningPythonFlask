@@ -4,7 +4,9 @@ body{
     background-size: cover;
 	background-attachment: fixed;
     background-position: center;
-    margin-bottom: 180px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .font-poppins {
@@ -12,6 +14,7 @@ body{
 }
 
 .footer {
+    margin-top: auto;
     color: lightslategray;
 }
 
@@ -19,15 +22,33 @@ body{
     background-image: url('../images/pup_gate.jpg');
 }
 
-.home, .grades, .enrollment, .schedule {
-    background-image: url('../images/pup_campus.jpg');
+.home, .grades, .enrollment, .schedule, .index {
+    background-image: url('../images/pup_campus.jpg')
 }
 
-.login-form, .signup-form {
+.login-form, .signup-form, .index-form {
     border-radius: 10px;
 }
 
 .signup-form {
-    width: 75%;
+    width: 80%;
     margin: auto;
+}
+
+.index-form {
+    width: 50%;
+    margin: auto;
+}
+
+.fs-15px {
+    font-size: 15px;
+}
+
+.fs-20px {
+    font-size: 20px;
+}
+
+.bg-darkred {
+    background-color: DarkRed;
+    color: white;
 }
